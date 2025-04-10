@@ -14,8 +14,10 @@
     "noEmitHelpers": true,
     "importHelpers": true,
     "sourceMap": true,
+    "skipLibCheck": true,
     "lib": [
-      "es2019"
+      "es2019",
+      "dom"
     ]
   },
   "exclude": [

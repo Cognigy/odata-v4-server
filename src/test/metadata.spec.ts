@@ -2,7 +2,7 @@
 import { ODataController, ODataServer, ODataProcessor, Edm, odata, ODataStream, createODataServer, ODataQuery } from "../lib/index";
 import { createFilter } from "odata-v4-mongodb";
 import { PassThrough } from "stream";
-import { ObjectID } from "mongodb";
+import { ObjectId } from "mongodb";
 import * as fs from "fs";
 import * as path from "path";
 const { expect } = require("chai");
@@ -15,7 +15,7 @@ if (typeof after == "function"){
     });
 }
 
-const toObjectID = _id => _id && !(_id instanceof ObjectID) ? ObjectID.createFromHexString(_id) : _id;
+const toObjectID = _id => _id && !(_id instanceof ObjectId) ? ObjectId.createFromHexString(_id) : _id;
 let schemaJson = {
     version: "4.0",
     dataServices: {
@@ -158,8 +158,8 @@ export class Complex extends SubComplex {
 }
 
 @Edm.String
-export class SimpleObjectID extends ObjectID{
-    static "@odata.type" = "Simple.ObjectID"
+export class SimpleObjectID extends ObjectId{
+    static "@odata.type" = "Simple.ObjectId"
 }
 export class SimpleEntity {
     @Edm.Key
@@ -183,9 +183,9 @@ export enum Color {
 export class BaseMeta {
     @Edm.Key
     @Edm.Computed
-    @Edm.TypeDefinition(ObjectID)
+    @Edm.TypeDefinition(ObjectId)
     @Edm.Deserialize(toObjectID)
-    MongoId: ObjectID
+    MongoId: ObjectId
 
     @Edm.String
     b0: string
@@ -211,8 +211,8 @@ export class Meta extends BaseMeta {
         })
     Id: number
 
-    @Edm.TypeDefinition(ObjectID)
-    MongoId: ObjectID
+    @Edm.TypeDefinition(ObjectId)
+    MongoId: ObjectId
 
     @Edm.TypeDefinition(MyType)
     myType: MyType
@@ -536,10 +536,10 @@ export class TestContainer extends TestContainerBase {
     Genre2 = Genre
 
     @Edm.String
-    @Edm.URLSerialize((value: ObjectID) => `'${value.toHexString()}'`)
-    @Edm.URLDeserialize((value: string) => new ObjectID(value))
-    @Edm.Deserialize(value => new ObjectID(value))
-    ObjectID2 = ObjectID
+    @Edm.URLSerialize((value: ObjectId) => `'${value.toHexString()}'`)
+    @Edm.URLDeserialize((value: string) => new ObjectId(value))
+    @Edm.Deserialize(value => new ObjectId(value))
+    ObjectID2 = ObjectId
 
     @Edm.Int64
     @odata.namespace("FuncEnumSchema")
@@ -564,10 +564,10 @@ export class TestContainer extends TestContainerBase {
 @odata.namespace("Container")
 export class TypeDefContainer extends Edm.ContainerBase {
     @Edm.String
-    @Edm.URLSerialize((value: ObjectID) => `'${value.toHexString()}'`)
-    @Edm.URLDeserialize((value: string) => new ObjectID(value))
-    @Edm.Deserialize(value => new ObjectID(value))
-    'Object.ID2' = ObjectID
+    @Edm.URLSerialize((value: ObjectId) => `'${value.toHexString()}'`)
+    @Edm.URLDeserialize((value: string) => new ObjectId(value))
+    @Edm.Deserialize(value => new ObjectId(value))
+    'Object.ID2' = ObjectId
 }
 
 @odata.namespace("Container")
@@ -586,8 +586,8 @@ export class MetaController extends ODataController {
     @odata.GET
     findAll( @odata.context __: any, @odata.result ___: any, @odata.stream ____: ODataProcessor) {
         return [
-            { MongoId: new ObjectID('5968aad95eb7eb3a94a264f7'), b0: "basemeta", "@odata.type": BaseMeta },
-            { Id: 1, p0: 1, p1: true, p9: 9, p10: 10, MongoId: new ObjectID('5968aad95eb7eb3a94a264f6'), "@odata.type": Meta }
+            { MongoId: new ObjectId('5968aad95eb7eb3a94a264f7'), b0: "basemeta", "@odata.type": BaseMeta },
+            { Id: 1, p0: 1, p1: true, p9: 9, p10: 10, MongoId: new ObjectId('5968aad95eb7eb3a94a264f6'), "@odata.type": Meta }
         ];
     }
 
@@ -597,7 +597,7 @@ export class MetaController extends ODataController {
         meta.Id = key1;
         meta.p9 = key3;
         meta.p10 = key2;
-        meta.MongoId = new ObjectID(key4);
+        meta.MongoId = new ObjectId(key4);
         return meta;
     }
 
@@ -622,13 +622,13 @@ export class MetaController extends ODataController {
         return media;
     }
 
-    @odata.GET("MediaList").$ref
+    @(odata.GET("MediaList").$ref)
     getMediaRef( @odata.link('Id') link1: number, @odata.link('StringId') link2: number, @odata.key('MongoId') k1: string, @odata.key('p9') k2: number, @odata.key('p10') k3: number, @odata.key('Id') k4: number, @odata.result result: any) {
         let meta = new Meta();
         meta.Id = k4;
         meta.p9 = k2;
         meta.p10 = k3;
-        meta.MongoId = new ObjectID(k1);
+        meta.MongoId = new ObjectId(k1);
         return meta;
     }
 
@@ -646,8 +646,8 @@ export class MetaController extends ODataController {
     @Edm.Function(Edm.EntityType(BaseMeta))
     useOdataType( @odata.type type: any) {
         return [
-            { MongoId: new ObjectID('5968aad95eb7eb3a94a264f7'), b0: "basemeta", "@odata.type": BaseMeta },
-            { Id: 1, p0: 1, p1: true, p9: 9, p10: 10, MongoId: new ObjectID('5968aad95eb7eb3a94a264f6'), "@odata.type": Meta },
+            { MongoId: new ObjectId('5968aad95eb7eb3a94a264f7'), b0: "basemeta", "@odata.type": BaseMeta },
+            { Id: 1, p0: 1, p1: true, p9: 9, p10: 10, MongoId: new ObjectId('5968aad95eb7eb3a94a264f6'), "@odata.type": Meta },
             type.namespace
         ];
     }
@@ -818,14 +818,14 @@ export class SimpleEntityController extends ODataController {
     @odata.GET
     findAll( @odata.key key: string) {
         let simple = new SimpleEntity()
-        simple.MongoId = new ObjectID('5968aad95eb7eb6b94a354g7')
+        simple.MongoId = new ObjectId('5968aad95eb7eb6b94a354g7')
         return [simple];
     }
 
     @odata.GET
     find( @odata.key key: string) {
         let simple = new SimpleEntity()
-        simple.MongoId = new ObjectID(key)
+        simple.MongoId = new ObjectId(key)
         return simple;
     }
 }
@@ -917,9 +917,9 @@ export class MetaTestServer extends ODataServer {
         return `Server FunctionImport ${message}`;
     }
 
-    @Edm.TypeDefinition(ObjectID)
+    @Edm.TypeDefinition(ObjectId)
     @Edm.FunctionImport
-    ObjId( @Edm.TypeDefinition(ObjectID) v: ObjectID) {
+    ObjId( @Edm.TypeDefinition(ObjectId) v: ObjectId) {
         return v.toHexString();
     }
 

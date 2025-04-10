@@ -5,7 +5,7 @@ import { Product, Category } from "./model/model";
 import { Meta, Media, TestEntity, MetaTestServer, CompoundKey, EmptyEntity, BaseMeta, Genre } from './metadata.spec';
 import { ProductPromise, CategoryPromise } from "./model/ModelsForPromise";
 import { GeneratorProduct, GeneratorCategory } from "./model/ModelsForGenerator";
-import { ObjectID } from "mongodb";
+import { ObjectId } from "mongodb";
 const { expect } = require("chai");
 const extend = require("extend");
 let categories = require("./model/categories");
@@ -393,7 +393,7 @@ export function testFactory(createTest: any) {
                 "@odata.id": "http://localhost/Categories2('578f2baa12eaebabec4af289')",
                 "Description": "Soft drinks",
                 "Name": "Beverages",
-                "_id": new ObjectID("578f2baa12eaebabec4af289")
+                "_id": new ObjectId("578f2baa12eaebabec4af289")
             },
             elementType: Category2,
             contentType: "application/json"
@@ -420,8 +420,8 @@ export function testFactory(createTest: any) {
                     "@odata.id": "http://localhost/Products2('578f2b8c12eaebabec4af23c')",
                     "Discontinued": false, "Name": "Chai", "QuantityPerUnit": "10 boxes x 20 bags",
                     "UnitPrice": 39,
-                    "_id": new ObjectID("578f2b8c12eaebabec4af23c"),
-                    "CategoryId": new ObjectID("578f2baa12eaebabec4af289")
+                    "_id": new ObjectId("578f2b8c12eaebabec4af23c"),
+                    "CategoryId": new ObjectId("578f2baa12eaebabec4af289")
                 }]
             },
             elementType: Product2,
@@ -436,7 +436,7 @@ export function testFactory(createTest: any) {
                     "@odata.id": "http://localhost/Categories2('578f2baa12eaebabec4af289')",
                     "Description": "Soft drinks",
                     "Name": "Beverages",
-                    "_id": new ObjectID("578f2baa12eaebabec4af289")
+                    "_id": new ObjectId("578f2baa12eaebabec4af289")
                 }]
             },
             elementType: Category2,
@@ -486,8 +486,8 @@ export function testFactory(createTest: any) {
                 "Name": "Chai",
                 "QuantityPerUnit": "10 boxes x 20 bags",
                 "UnitPrice": 39,
-                "_id": new ObjectID("578f2b8c12eaebabec4af23c"),
-                "CategoryId": new ObjectID("578f2baa12eaebabec4af289")
+                "_id": new ObjectId("578f2b8c12eaebabec4af23c"),
+                "CategoryId": new ObjectId("578f2baa12eaebabec4af289")
             },
             elementType: ProductPromise,
             contentType: "application/json"
@@ -500,7 +500,7 @@ export function testFactory(createTest: any) {
                 "@odata.id": "http://localhost/AdvancedCategories('578f2baa12eaebabec4af289')",
                 "Description": "Soft drinks",
                 "Name": "Beverages",
-                "_id": new ObjectID("578f2baa12eaebabec4af289")
+                "_id": new ObjectId("578f2baa12eaebabec4af289")
             },
             elementType: CategoryPromise,
             contentType: "application/json"
@@ -514,7 +514,7 @@ export function testFactory(createTest: any) {
                     "@odata.id": "http://localhost/AdvancedCategories('578f2baa12eaebabec4af289')",
                     "Description": "Soft drinks",
                     "Name": "Beverages",
-                    "_id": new ObjectID("578f2baa12eaebabec4af289")
+                    "_id": new ObjectId("578f2baa12eaebabec4af289")
                 }]
             },
             elementType: CategoryPromise,
@@ -576,8 +576,8 @@ export function testFactory(createTest: any) {
                 "Name": "Chai",
                 "QuantityPerUnit": "10 boxes x 20 bags",
                 "UnitPrice": 39,
-                "_id": new ObjectID("578f2b8c12eaebabec4af23c"),
-                "CategoryId": new ObjectID("578f2baa12eaebabec4af289")
+                "_id": new ObjectId("578f2b8c12eaebabec4af23c"),
+                "CategoryId": new ObjectId("578f2baa12eaebabec4af289")
             },
             elementType: GeneratorProduct,
             contentType: "application/json"
@@ -590,7 +590,7 @@ export function testFactory(createTest: any) {
                 "@odata.id": "http://localhost/GeneratorCategories('578f2baa12eaebabec4af289')",
                 "Description": "Soft drinks",
                 "Name": "Beverages",
-                "_id": new ObjectID("578f2baa12eaebabec4af289")
+                "_id": new ObjectId("578f2baa12eaebabec4af289")
             },
             elementType: GeneratorCategory,
             contentType: "application/json"
@@ -604,7 +604,7 @@ export function testFactory(createTest: any) {
                 "@odata.id": "http://localhost/GeneratorCategories('578f2baa12eaebabec4af289')",
                 "Description": "Soft drinks",
                 "Name": "Beverages",
-                "_id": new ObjectID("578f2baa12eaebabec4af289")
+                "_id": new ObjectId("578f2baa12eaebabec4af289")
             },
             elementType: GeneratorCategory,
             contentType: "application/json"
@@ -667,7 +667,7 @@ export function testFactory(createTest: any) {
                 "@odata.context": "http://localhost/$metadata#Products(Name,CategoryId)/$entity",
                 "@odata.id": "http://localhost/Products('578f2b8c12eaebabec4af23c')",
                 "Name": "Chai",
-                "CategoryId": new ObjectID("578f2baa12eaebabec4af289")
+                "CategoryId": new ObjectId("578f2baa12eaebabec4af289")
             },
             elementType: Product,
             contentType: "application/json"
@@ -680,7 +680,7 @@ export function testFactory(createTest: any) {
                 "value": [{
                     "@odata.id": "http://localhost/Products('578f2b8c12eaebabec4af23c')",
                     "Name": "Chai",
-                    "CategoryId": new ObjectID("578f2baa12eaebabec4af289")
+                    "CategoryId": new ObjectId("578f2baa12eaebabec4af289")
                 }]
             },
             elementType: Product,
@@ -704,7 +704,7 @@ export function testFactory(createTest: any) {
                 "@odata.id": "http://localhost/Categories('578f2baa12eaebabec4af289')",
                 "Description": "Soft drinks",
                 "Name": "Beverages",
-                "_id": new ObjectID("578f2baa12eaebabec4af289")
+                "_id": new ObjectId("578f2baa12eaebabec4af289")
             },
             elementType: Category,
             contentType: "application/json"
@@ -939,15 +939,15 @@ export function testFactory(createTest: any) {
                         "Name": "Chai",
                         "QuantityPerUnit": "10 boxes x 20 bags",
                         "UnitPrice": 39,
-                        "_id": new ObjectID("578f2b8c12eaebabec4af23c"),
-                        "CategoryId": new ObjectID("578f2baa12eaebabec4af289"),
+                        "_id": new ObjectId("578f2b8c12eaebabec4af23c"),
+                        "CategoryId": new ObjectId("578f2baa12eaebabec4af289"),
                         "Category2": {
                             "value": [
                                 {
                                     "@odata.id": "http://localhost/Categories2('578f2baa12eaebabec4af289')",
                                     "Description": "Soft drinks",
                                     "Name": "Beverages",
-                                    "_id": new ObjectID("578f2baa12eaebabec4af289")
+                                    "_id": new ObjectId("578f2baa12eaebabec4af289")
                                 }
                             ]
                         }
@@ -964,7 +964,7 @@ export function testFactory(createTest: any) {
                     "@odata.id": "http://localhost/Categories2('578f2baa12eaebabec4af289')",
                     "Description": "Soft drinks",
                     "Name": "Beverages",
-                    "_id": new ObjectID("578f2baa12eaebabec4af289"),
+                    "_id": new ObjectId("578f2baa12eaebabec4af289"),
                     "Products2": products.filter(p => p.CategoryId.toString() === "578f2baa12eaebabec4af289")
                                     .map(p => Object.assign({ "@odata.id": `http://localhost/Products2('${p._id}')` }, p))
                 },
@@ -982,7 +982,7 @@ export function testFactory(createTest: any) {
                             "@odata.id": "http://localhost/Categories('578f2baa12eaebabec4af289')",
                             "Description": "Soft drinks",
                             "Name": "Beverages",
-                            "_id": new ObjectID("578f2baa12eaebabec4af289"),
+                            "_id": new ObjectId("578f2baa12eaebabec4af289"),
                             "Products": products
                                 .filter(p => p.CategoryId.toString() === "578f2baa12eaebabec4af289")
                                 .map(p => Object.assign({ "@odata.id": `http://localhost/Products('${p._id}')` }, p))
@@ -1050,7 +1050,7 @@ export function testFactory(createTest: any) {
                             "@odata.id": "http://localhost/Categories('578f2baa12eaebabec4af289')",
                             "Description": "Soft drinks",
                             "Name": "Beverages",
-                            "_id": new ObjectID("578f2baa12eaebabec4af289"),
+                            "_id": new ObjectId("578f2baa12eaebabec4af289"),
                             "Products": [
                                 {
                                     "@odata.id": "http://localhost/Products('578f2b8c12eaebabec4af23c')",
@@ -1058,8 +1058,8 @@ export function testFactory(createTest: any) {
                                     "Name": "Chai",
                                     "QuantityPerUnit": "10 boxes x 20 bags",
                                     "UnitPrice": 39,
-                                    "_id": new ObjectID("578f2b8c12eaebabec4af23c"),
-                                    "CategoryId": new ObjectID("578f2baa12eaebabec4af289")
+                                    "_id": new ObjectId("578f2b8c12eaebabec4af23c"),
+                                    "CategoryId": new ObjectId("578f2baa12eaebabec4af289")
                                 }
                             ]
                         }
@@ -1088,8 +1088,8 @@ export function testFactory(createTest: any) {
                                     "Name": "Chai",
                                     "QuantityPerUnit": "10 boxes x 20 bags",
                                     "UnitPrice": 39,
-                                    "_id": new ObjectID("578f2b8c12eaebabec4af23c"),
-                                    "CategoryId": new ObjectID("578f2baa12eaebabec4af289")
+                                    "_id": new ObjectId("578f2b8c12eaebabec4af23c"),
+                                    "CategoryId": new ObjectId("578f2baa12eaebabec4af289")
                                 }
                             ]
                         }
@@ -1109,7 +1109,7 @@ export function testFactory(createTest: any) {
                             "@odata.id": "http://localhost/GeneratorCategories('578f2baa12eaebabec4af289')",
                             "Description": "Soft drinks",
                             "Name": "Beverages",
-                            "_id": new ObjectID("578f2baa12eaebabec4af289"),
+                            "_id": new ObjectId("578f2baa12eaebabec4af289"),
                             "GeneratorProducts": [
                                 {
                                     "@odata.id": "http://localhost/GeneratorProducts('578f2b8c12eaebabec4af23c')",
@@ -1117,8 +1117,8 @@ export function testFactory(createTest: any) {
                                     "Name": "Chai",
                                     "QuantityPerUnit": "10 boxes x 20 bags",
                                     "UnitPrice": 39,
-                                    "_id": new ObjectID("578f2b8c12eaebabec4af23c"),
-                                    "CategoryId": new ObjectID("578f2baa12eaebabec4af289")
+                                    "_id": new ObjectId("578f2b8c12eaebabec4af23c"),
+                                    "CategoryId": new ObjectId("578f2baa12eaebabec4af289")
                                 }
                             ]
                         }
@@ -1159,7 +1159,7 @@ export function testFactory(createTest: any) {
                             "@odata.id": "http://localhost/GeneratorCategories('578f2baa12eaebabec4af28d')",
                             "Description": "Seaweed and fish",
                             "Name": "Seafood",
-                            "_id": new ObjectID("578f2baa12eaebabec4af28d"),
+                            "_id": new ObjectId("578f2baa12eaebabec4af28d"),
                             "GeneratorProducts": [
                                 {
                                     "@odata.id": "http://localhost/GeneratorProducts('578f2b8c12eaebabec4af242')",
@@ -1167,8 +1167,8 @@ export function testFactory(createTest: any) {
                                     "Name": "Ikura",
                                     "QuantityPerUnit": "12 - 200 ml jars",
                                     "UnitPrice": 31,
-                                    "_id": new ObjectID("578f2b8c12eaebabec4af242"),
-                                    "CategoryId": new ObjectID("578f2baa12eaebabec4af28d")
+                                    "_id": new ObjectId("578f2b8c12eaebabec4af242"),
+                                    "CategoryId": new ObjectId("578f2baa12eaebabec4af28d")
                                 }
                             ]
                         }
@@ -1187,7 +1187,7 @@ export function testFactory(createTest: any) {
                                 "@odata.id": "http://localhost/GeneratorCategories('578f2baa12eaebabec4af28d')",
                                 "Description": "Seaweed and fish",
                                 "Name": "Seafood",
-                                "_id": new ObjectID("578f2baa12eaebabec4af28d"),
+                                "_id": new ObjectId("578f2baa12eaebabec4af28d"),
                                 "GeneratorProducts": [
                                     {
                                         "@odata.id": "http://localhost/GeneratorProducts('578f2b8c12eaebabec4af242')",
@@ -1195,8 +1195,8 @@ export function testFactory(createTest: any) {
                                         "Name": "Ikura",
                                         "QuantityPerUnit": "12 - 200 ml jars",
                                         "UnitPrice": 31,
-                                        "_id": new ObjectID("578f2b8c12eaebabec4af242"),
-                                        "CategoryId": new ObjectID("578f2baa12eaebabec4af28d")
+                                        "_id": new ObjectId("578f2b8c12eaebabec4af242"),
+                                        "CategoryId": new ObjectId("578f2baa12eaebabec4af28d")
                                     },
                                     {
                                         "@odata.id": "http://localhost/GeneratorProducts('578f2b8c12eaebabec4af245')",
@@ -1204,8 +1204,8 @@ export function testFactory(createTest: any) {
                                         "Name": "Konbu",
                                         "QuantityPerUnit": "2 kg box",
                                         "UnitPrice": 6,
-                                        "_id": new ObjectID("578f2b8c12eaebabec4af245"),
-                                        "CategoryId": new ObjectID("578f2baa12eaebabec4af28d"),
+                                        "_id": new ObjectId("578f2b8c12eaebabec4af245"),
+                                        "CategoryId": new ObjectId("578f2baa12eaebabec4af28d"),
                                     }
                                 ],
                                 "GeneratorProducts@odata.nextLink": "http://localhost/GeneratorCategories('578f2baa12eaebabec4af28d')?$expand=GeneratorProducts($top=2&$skip=2)"
@@ -1226,7 +1226,7 @@ export function testFactory(createTest: any) {
                             "@odata.id": "http://localhost/GeneratorCategories('578f2baa12eaebabec4af28d')",
                             "Description": "Seaweed and fish",
                             "Name": "Seafood",
-                            "_id": new ObjectID("578f2baa12eaebabec4af28d"),
+                            "_id": new ObjectId("578f2baa12eaebabec4af28d"),
                             "GeneratorProducts": products
                                 .filter(p => p.CategoryId.toString() === "578f2baa12eaebabec4af28d")
                                 .map(p => Object.assign({ "@odata.id": `http://localhost/GeneratorProducts('${p._id}')` }, p))
@@ -1453,9 +1453,9 @@ export function testFactory(createTest: any) {
             body: {
                 "@odata.context": "http://localhost/$metadata#Categories('578f2baa12eaebabec4af290')/Products/$entity",
                 "@odata.id": "http://localhost/Products('578e1a7c12eaebabec4af23c')",
-                "CategoryId": new ObjectID("578f2baa12eaebabec4af28b"),
+                "CategoryId": new ObjectId("578f2baa12eaebabec4af28b"),
                 "Name": "New product",
-                "_id": new ObjectID("578e1a7c12eaebabec4af23c")
+                "_id": new ObjectId("578e1a7c12eaebabec4af23c")
             },
             elementType: Product,
             contentType: "application/json"
@@ -1509,14 +1509,14 @@ export function testFactory(createTest: any) {
                     {
                         "@odata.id": "http://localhost/Meta('5968aad95eb7eb3a94a264f7')",
                         "@odata.type": "#Meta.BaseMeta",
-                        "MongoId": new ObjectID("5968aad95eb7eb3a94a264f7"),
+                        "MongoId": new ObjectId("5968aad95eb7eb3a94a264f7"),
                         "b0": "basemeta"
                     },
                     {
                         "@odata.id": "http://localhost/Meta(MongoId='5968aad95eb7eb3a94a264f6',Id=1,p9=9,p10=10)",
                         "@odata.type": "#Meta.Meta",
                         "Genre": "EnumSchema.Genre2'0'",
-                        "MongoId": new ObjectID("5968aad95eb7eb3a94a264f6"),
+                        "MongoId": new ObjectId("5968aad95eb7eb3a94a264f6"),
                         "Id": 1,
                         "p0": 1,
                         "p1": true,
@@ -1538,14 +1538,14 @@ export function testFactory(createTest: any) {
             "body": {
                 "@odata.context": "http://localhost/$metadata#Meta/$entity",
                 "@odata.id": "http://localhost/Meta('5968aad95eb7eb3a94a264f6')",
-                "MongoId": new ObjectID('5968aad95eb7eb3a94a264f6'),
+                "MongoId": new ObjectId('5968aad95eb7eb3a94a264f6'),
                 "b0": 'basemeta',
             },
             contentType: "application/json",
             elementType: BaseMeta
         },
             {
-                MongoId: new ObjectID('5968aad95eb7eb3a94a264f6'),
+                MongoId: new ObjectId('5968aad95eb7eb3a94a264f6'),
                 b0: 'basemeta',
                 "@odata.type": BaseMeta
             }
@@ -1566,7 +1566,7 @@ export function testFactory(createTest: any) {
                 "p14@odata.mediaContentType": "test",
                 "p47@odata.mediaReadLink": "http://localhost/Meta(MongoId='578f2b8c12eaebabec4af242',Id=1,p9=9,p10=10)/p47",
                 "p66@odata.mediaReadLink": "http://localhost/Meta(MongoId='578f2b8c12eaebabec4af242',Id=1,p9=9,p10=10)/p66",
-                MongoId: new ObjectID("578f2b8c12eaebabec4af242")
+                MongoId: new ObjectId("578f2b8c12eaebabec4af242")
             },
             elementType: Meta,
             contentType: "application/json"
@@ -1581,7 +1581,7 @@ export function testFactory(createTest: any) {
                 "@odata.id": "http://localhost/Meta(MongoId='578f2b8c12eaebabec4af242',Id=1,p9=9,p10=10)",
                 "@odata.type": "#Meta.Meta",
                 "Genre": "EnumSchema.Genre2'0'",
-                "MongoId": new ObjectID("578f2b8c12eaebabec4af242"),
+                "MongoId": new ObjectId("578f2b8c12eaebabec4af242"),
                 "b0": "b0",
                 "Id": 1,
                 "p9": 9,
@@ -1611,7 +1611,7 @@ export function testFactory(createTest: any) {
                 "@odata.id": "http://localhost/Meta(MongoId='578f2b8c12eaebabec4af242',Id=1,p9=9,p10=10)",
                 "@odata.type": "#Meta.Meta",
                 "Genre": "EnumSchema.Genre2'0'",
-                "MongoId": new ObjectID("578f2b8c12eaebabec4af242"),
+                "MongoId": new ObjectId("578f2b8c12eaebabec4af242"),
                 "b0": "b0",
                 "Id": 1,
                 "p9": 9,
@@ -1641,7 +1641,7 @@ export function testFactory(createTest: any) {
                 "@odata.id": "http://localhost/Meta(MongoId='578f2b8c12eaebabec4af242',Id=1,p9=9,p10=10)",
                 "@odata.type": "#Meta.Meta",
                 "Genre": "EnumSchema.Genre2'0'",
-                "MongoId": new ObjectID("578f2b8c12eaebabec4af242"),
+                "MongoId": new ObjectId("578f2b8c12eaebabec4af242"),
                 "b0": "b0",
                 "Id": 1,
                 "p9": 9,
@@ -1672,14 +1672,14 @@ export function testFactory(createTest: any) {
                         {
                             "@odata.id": "http://localhost/Meta('5968aad95eb7eb3a94a264f7')",
                             "@odata.type": "#Meta.BaseMeta",
-                            "MongoId": new ObjectID("5968aad95eb7eb3a94a264f7"),
+                            "MongoId": new ObjectId("5968aad95eb7eb3a94a264f7"),
                             "b0": "basemeta"
                         },
                         {
                             "@odata.id": "http://localhost/Meta(MongoId='5968aad95eb7eb3a94a264f6',Id=1,p9=9,p10=10)",
                             "@odata.type": "#Meta.Meta",
                             "Genre": "EnumSchema.Genre2'0'",
-                            "MongoId": new ObjectID("5968aad95eb7eb3a94a264f6"),
+                            "MongoId": new ObjectId("5968aad95eb7eb3a94a264f6"),
                             "Id": 1,
                             "p0": 1,
                             "p1": true,
@@ -1816,14 +1816,14 @@ export function testFactory(createTest: any) {
     });
 
     describe("FunctionImport", () => {
-        const objId = new ObjectID('578f2b8c12eaebabec4af288')
+        const objId = new ObjectId('578f2b8c12eaebabec4af288')
         createTest("shuld return objectId to hex string", MetaTestServer, `GET /ObjId(v='${objId}')`, {
             statusCode: 200,
             body: {
                 "@odata.context": "http://localhost/$metadata#Server.ObjectID2",
                 "value": "578f2b8c12eaebabec4af288"
             },
-            elementType: ObjectID,
+            elementType: ObjectId,
             contentType: "application/json"
         });
     });

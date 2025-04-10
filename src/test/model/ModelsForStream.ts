@@ -1,7 +1,7 @@
-import { ObjectID } from "mongodb";
+import { ObjectId } from "mongodb";
 import { Edm } from "../../lib/index";
 
-const toObjectID = _id => _id && !(_id instanceof ObjectID) ? ObjectID.createFromHexString(_id) : _id;
+const toObjectID = _id => _id && !(_id instanceof ObjectId) ? ObjectId.createFromHexString(_id) : _id;
 
 @Edm.Annotate({
     term: "UI.DisplayName",
@@ -16,12 +16,12 @@ export class StreamProduct {
         { term: "UI.DisplayName", string: "StreamProduct identifier" },
         { term: "UI.ControlHint", string: "ReadOnly" }
     )
-    _id: ObjectID
+    _id: ObjectId
 
     @Edm.String
     @Edm.Required
     @Edm.Convert(toObjectID)
-    CategoryId: ObjectID
+    CategoryId: ObjectId
 
     @Edm.ForeignKey("CategoryId")
     @Edm.Partner("StreamProduct")
@@ -70,7 +70,7 @@ export class StreamCategory {
         { term: "UI.DisplayName", string: "StreamCategory identifier" },
         { term: "UI.ControlHint", string: "ReadOnly" }
     )
-    _id: ObjectID
+    _id: ObjectId
 
     @Edm.String
     Description: string
