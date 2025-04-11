@@ -125,7 +125,7 @@
     "rimraf": "^2.6.2",
     "source-map-support": "^0.5.6",
     "stream-buffers": "^3.0.2",
-    "ts-node": "^9.0.0",
+    "ts-node": "^10.9.2",
     "tslint": "^5.11.0",
     "typedoc": "^0.19.2",
     "typedoc-default-themes": "^0.5.0",
