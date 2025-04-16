@@ -4,4 +4,3 @@ report
 docs
 .nyc_output
 *.log*
-node_modules
