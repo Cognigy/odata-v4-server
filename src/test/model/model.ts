@@ -1,7 +1,7 @@
-import { ObjectID } from "mongodb";
+import { ObjectId } from "mongodb";
 import { Edm } from "../../lib/index";
 
-const toObjectID = _id => _id && !(_id instanceof ObjectID) ? ObjectID.createFromHexString(_id) : _id;
+const toObjectID = _id => _id && !(_id instanceof ObjectId) ? ObjectId.createFromHexString(_id) : _id;
 
 @Edm.Annotate({
     term: "UI.DisplayName",
@@ -19,12 +19,12 @@ export class Product{
         term: "UI.ControlHint",
         string: "ReadOnly"
     })
-    _id:ObjectID
+    _id:ObjectId
 
     @Edm.String
     @Edm.Required
     @Edm.Convert(toObjectID)
-    CategoryId:ObjectID
+    CategoryId:ObjectId
 
     @Edm.ForeignKey("CategoryId")
     @Edm.EntityType(Edm.ForwardRef(() => Category))
@@ -83,7 +83,7 @@ export class Category{
         term: "UI.ControlHint",
         string: "ReadOnly"
     })
-    _id:ObjectID
+    _id:ObjectId
 
     @Edm.String
     Description:string

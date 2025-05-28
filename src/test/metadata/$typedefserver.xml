@@ -11,13 +11,13 @@
                 <Key>
                     <PropertyRef Name="MongoId" />
                 </Key>
-                <Property Name="MongoId" Type="Simple.ObjectID" Nullable="false">
+                <Property Name="MongoId" Type="Simple.ObjectId" Nullable="false">
                     <Annotation Term="Org.OData.Core.V1.Computed" Bool="true" />
                 </Property>
             </EntityType>
         </Schema>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Simple">
-            <TypeDefinition Name="ObjectID" UnderlyingType="Edm.String"></TypeDefinition>
+            <TypeDefinition Name="ObjectId" UnderlyingType="Edm.String"></TypeDefinition>
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>

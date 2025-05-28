@@ -7,7 +7,7 @@ import { ProductPromise, CategoryPromise } from "./model/ModelsForPromise";
 import { GeneratorProduct, GeneratorCategory } from "./model/ModelsForGenerator";
 import { StreamProduct, StreamCategory } from "./model/ModelsForStream";
 import { Readable, PassThrough, Writable } from "stream";
-import { ObjectID } from "mongodb";
+import { ObjectId } from "mongodb";
 import { processQueries, doOrderby, doSkip, doTop } from "./utils/queryOptions"
 import * as fs from "fs";
 import * as path from "path";
@@ -318,7 +318,10 @@ export class MusicController extends ODataController {
 
     @odata.GET.$value
     mp3(@odata.key _: number, @odata.context context: ODataHttpContext) {
-        globalReadableMediaStrBuffer.put(globalWritableMediaStrBuffer.getContents());
+        const contents = globalWritableMediaStrBuffer.getContents();
+        if (contents) {
+            globalReadableMediaStrBuffer.put(contents);
+        }
         return globalReadableMediaStrBuffer.pipe(<Writable>context.response);
     }
 
@@ -368,7 +371,7 @@ export class ProductsController extends ODataController {
     async setCategory(@odata.key key: string, @odata.link('categoryId') link: string): Promise<number> {
         return products.filter(product => {
             if (product._id.toString() === key) {
-                product.CategoryId = new ObjectID(link);
+                product.CategoryId = new ObjectId(link);
                 return product;
             }
             return null;
@@ -408,7 +411,7 @@ export class CategoriesController extends ODataController {
 
     @odata.POST("Products")
     insertProduct(@odata.key key: string, @odata.link link: string, @odata.body body: Product) {
-        body._id = new ObjectID('578e1a7c12eaebabec4af23c')
+        body._id = new ObjectId('578e1a7c12eaebabec4af23c')
         return ODataResult.Created(new Promise((resolve, reject) => {
             try {
                 resolve(body);
@@ -418,26 +421,26 @@ export class CategoriesController extends ODataController {
         }));
     }
 
-    @odata.GET("Products").$ref
+    @(odata.GET("Products").$ref)
     @odata.parameter("key", odata.key)
     @odata.parameter("link", odata.link)
     findProduct(key: string, link: string): Product {
         return products.filter(product => product._id.toString() === link);
     }
 
-    @odata.POST("Products").$ref
-    @odata.method("PUT", "Products").$ref
-    @odata.PATCH("Products").$ref
+    @(odata.POST("Products").$ref)
+    @(odata.method("PUT", "Products").$ref)
+    @(odata.PATCH("Products").$ref)
     *setCategory(@odata.key key: string, @odata.link link: string) {
         yield products.filter(product => {
             if (product._id.toString() === link) {
-                product.CategoryId = new ObjectID(key);
+                product.CategoryId = new ObjectId(key);
                 return product;
             }
         });
     }
 
-    @odata.DELETE("Products").$ref
+    @(odata.DELETE("Products").$ref)
     unsetCategory(@odata.key key: string, @odata.link link: string) {
         return new Promise(resolve => {
             products.filter(product => {
@@ -487,7 +490,7 @@ export class CategoriesStreamingController extends ODataController {
  *  GENERATOR CONTROLLERS
  */
 
-const toObjectID = _id => _id && !(_id instanceof ObjectID) ? ObjectID.createFromHexString(_id) : _id;
+const toObjectID = _id => _id && !(_id instanceof ObjectId) ? ObjectId.createFromHexString(_id) : _id;
 
 const delay = async function (ms: number): Promise<any> {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -509,12 +512,12 @@ export class Product2 {
         term: "UI.ControlHint",
         string: "ReadOnly"
     })
-    _id: ObjectID
+    _id: ObjectId
 
     @Edm.String
     @Edm.Required
     @Edm.Convert(toObjectID)
-    CategoryId: ObjectID
+    CategoryId: ObjectId
 
     @Edm.ForeignKey("CategoryId")
     @Edm.EntityType(Edm.ForwardRef(() => Category2))
@@ -573,7 +576,7 @@ export class Category2 {
             term: "UI.ControlHint",
             string: "ReadOnly"
         })
-    _id: ObjectID
+    _id: ObjectId
 
     @Edm.String
     Description: string
