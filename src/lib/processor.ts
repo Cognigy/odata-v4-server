@@ -10,7 +10,7 @@ import { ODataController, ODataControllerBase } from "./controller";
 import { ResourcePathVisitor, NavigationPart, ODATA_TYPE } from "./visitor";
 import * as Edm from "./edm";
 import * as odata from "./odata";
-import { ResourceNotFoundError, MethodNotAllowedError } from "./error";
+import { ResourceNotFoundError, MethodNotAllowedError, HttpRequestError } from "./error";
 import { ODataServer, ODataHttpContext } from "./server";
 import { IODataResult } from './index';
 
@@ -469,7 +469,13 @@ export class ODataProcessor extends Transform {
         context.url = decodeURIComponent(context.url);
         this.url = url.parse(context.url);
         this.query = qs.parse(this.url.query);
-        let ast = this.serverType.parser.odataUri(context.url, { metadata: this.serverType.$metadata().edmx });
+        let ast;
+        try {
+            ast = this.serverType.parser.odataUri(context.url, { metadata: this.serverType.$metadata().edmx });
+        } catch (parserError) {
+            // Convert parser errors to sanitized HTTP errors
+            throw new HttpRequestError(400, "Invalid OData query syntax. Please check your query parameters for proper formatting.");
+        }
         if (this.serverType.validator) {
             this.serverType.validator(ast);
         }
