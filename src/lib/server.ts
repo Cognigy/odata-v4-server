@@ -342,7 +342,7 @@ export function ODataErrorHandler(err, _, res, next){
             error: {
                 code: statusCode,
                 message: err.message,
-                stack: process.env.ODATA_V4_DISABLE_STACKTRACE ? undefined : err.stack
+                stack: process.env.ODATA_V4_DISABLE_STACKTRACE !== 'false' ? undefined : err.stack
             }
         });
     }else next();

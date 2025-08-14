@@ -1,6 +1,6 @@
 {
   "name": "@cognigy/odata-v4-server-tls-support",
-  "version": "0.2.17",
+  "version": "0.2.19",
   "description": "OData V4 Server",
   "main": "build/lib/index.js",
   "typings": "build/lib/index",
