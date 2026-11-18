@@ -135,6 +135,9 @@
     "xml-beautifier": "^0.4.0"
   },
   "overrides": {
-    "qs": "$qs"
+    "qs": "$qs",
+    "request": {
+      "qs": "6.5.5"
+    }
   }
 }
