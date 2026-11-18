@@ -136,6 +136,6 @@
   },
   "overrides": {
     "body-parser": "$body-parser",
-    "path-to-regexp": "0.1.13"
+    "path-to-regexp": "0.2.5"
   }
 }
