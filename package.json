@@ -89,7 +89,7 @@
     "odata-v4-parser": "^0.1.29",
     "odata-v4-service-document": "0.0.3",
     "odata-v4-service-metadata": "^0.1.6",
-    "qs": "^6.9.4",
+    "qs": "^6.17.1",
     "reflect-metadata": "^0.1.13",
     "tslib": "^2.0.3"
   },
@@ -133,5 +133,8 @@
     "typedoc-plugin-external-module-name": "^1.1.1",
     "typescript": "^4.1.2",
     "xml-beautifier": "^0.4.0"
+  },
+  "overrides": {
+    "qs": "$qs"
   }
 }
